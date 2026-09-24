@@ -1,0 +1,39 @@
+{
+  "name": "opencart_april_web_api_framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "_comment1": "** Playwright test commands**",
+    "test": "npx playwright test",
+    "_comment2": "** Run Playwright tests with browser visible **",
+    "test:headed": "npx playwright test --headed",
+    "_comment3": "** Run tests using Chromium project **",
+    "test:chrome": "npx playwright test --project=chromium",
+    "_comment4": "** Generate Allure report **",
+    "allure:generate": "npx allure generate allure-results --clean -o allure-report",
+    "_comment5": "** Open Allure report **",
+    "allure:open": "npx allure open allure-report",
+    "_comment6": " ** Generate and open Allure report **",
+    "allure:report": "npm run allure:generate && npm run allure:open",
+    "_comment7": "** Clean Allure results and report **",
+    "allure:clean": "rm -rf allure-results allure-report"
+  },
+  "keywords": [],
+  "author": "Deepti Automation FrameWOrk",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@types/node": "^26.6.2",
+    "allure": "^3.18.0",
+    "allure-commandline": "^2.46.1",
+    "allure-playwright": "^3.12.2",
+    "commandline": "^0.0.2"
+  },
+  "dependencies": {
+    "ajv": "^8.20.0",
+    "dotenv": "^17.4.2",
+    "reporting-labs": "^0.6.0"
+  }
+}

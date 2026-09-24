@@ -1,0 +1,24 @@
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+/reports/
+/reporting-labs/
+/allure-report/
+/allure-results/
+
+
+# env files (confidentials):
+config/.env.*
+
+# build compile TS code covert to JS that JS create in dist folder
+dist/
+
+#OS files in macbook
+.DS_Store
+
+reporting-labs.history.json
