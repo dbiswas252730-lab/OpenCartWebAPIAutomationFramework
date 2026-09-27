@@ -1,0 +1,4 @@
+firstname,lastname, Email,Telephone,Password, PasswordConfirm,subscribe,Policy
+Cheena,Ghosh,cheena123@gmail.com,123456,Pwd123,Pwd123,Yes,Yes
+John,Smith,john@test.com,123456789,Test@123,Test@123,Yes,Yes
+Mary,Jones,mary@test.com,987654321,Test@456,Test@456,No,Yes

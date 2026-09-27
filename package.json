@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "ajv": "^8.20.0",
+    "csv-parse": "^7.0.2",
     "dotenv": "^17.4.2",
     "reporting-labs": "^0.6.0"
   }

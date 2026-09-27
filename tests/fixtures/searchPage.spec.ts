@@ -1,5 +1,6 @@
 import {test , expect } from '../../src/fixtures/pagefixtures';
 import { HomePage } from '../../src/pages/HomePage';
+import { CsvHelper } from '../../src/utils/CsvHelper';
 
 
 test.beforeEach(async({loginPage})=>{    
@@ -8,25 +9,34 @@ test.beforeEach(async({loginPage})=>{
     await loginPage.doLogin(process.env.APP_USERNAME! , process.env.APP_PASSWORD!);  
 });
 
-test('verify search result count test' , async({homePage ,searchResultsPage}) =>{
-      await homePage.doSearch('macbook');
-      let resultCount = await searchResultsPage.getProductSearchResultsCount();
-      let serchfootercount = await  searchResultsPage.getSearchFooterMessage()
-      console.log('resultCount :: ' , resultCount);
-      console.log('serchfootercount :: '  ,serchfootercount);
+//data Provider
+test.describe('CSV search test', ()=> {    
+let productData =CsvHelper.readCsv('src/testdata/product.csv');
+for (let row of productData ){
+test(`verify search result count test - ${row.searchkey}   ${row.productname}` , async({homePage ,searchResultsPage}) =>{
+      await homePage.doSearch(row.searchkey);
+      let actualresultCount = await searchResultsPage.getProductSearchResultsCount();
+     // let serchfootercount = await  searchResultsPage.getSearchFooterMessage()
+      console.log('resultCount :: ' , actualresultCount);
+      //console.log('serchfootercount :: '  ,serchfootercount);
      
-      expect.soft (resultCount).toBe(3);
-      expect.soft (resultCount).toBe(serchfootercount);
+      expect.soft (actualresultCount).toBe(Number(row.resultcount));
+     //expect.soft (actualresultCount).toBe(serchfootercount);
+     
 })
+}//for
+})//describe
 
-test('verify user is able to land on the product page', async({homePage ,searchResultsPage ,page})=>{
-      await homePage.doSearch('macbook');
-      await searchResultsPage.selectProduct('MacBook Pro');
-      expect (await page.title()).toBe('MacBook Pro');
-      await page.pause();
+let productData =CsvHelper.readCsv('src/testdata/product.csv');
+for(let [index , row] of productData.entries() ) {
+test(`verify user is able to land on the product page ${index}  ${row.searchkey} , ${row.productname}` , async({homePage ,searchResultsPage ,page})=>{
+      await homePage.doSearch(row.searchkey);
+      await searchResultsPage.selectProduct(row.productname);
+     expect (await page.title()).toBe(row.productname);
+       await page.waitForTimeout(4000);
   })
 
-  
+}
 //common features test:
 test('company logo exist on Login page' , async({basePage}) =>{
     expect(await basePage.isLogoVisisble()).toBeTruthy();

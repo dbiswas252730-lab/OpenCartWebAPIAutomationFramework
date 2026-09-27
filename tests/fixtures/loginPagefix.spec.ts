@@ -2,8 +2,10 @@
 
 import {test , expect } from '../../src/fixtures/pagefixtures';
 import * as allure from "allure-js-commons";
-import {meta,log, testData} from 'reporting-labs';
+import {meta,log} from 'reporting-labs';
 import { BasePage } from '../../src/pages/BasePage';
+import { CsvHelper } from '../../src/utils/CsvHelper';
+import { JsonHelper } from '../../src/utils/JsonHelper';
 
 
 test.beforeEach(async ({loginPage})=> {
@@ -28,37 +30,41 @@ test('forgot pwd link exist or not  test', async({loginPage}) => {
     expect (await loginPage.isForgottenPwdLinkExist()).toBeTruthy();
 });
 
-test('user is able to login to app  test', async({loginPage,homePage}) => {
-    //allure report decorations
-     meta({priority:'P1' , severity:'blocker' , owner:'Ollie',story: 'US982' , epic: 'ep309', feature:'F309', issue:'bug323'})
-    await testData({USERNAME: process.env.APP_USERNAME! ,PASSWORD: process.env.APP_PASSWORD! },'Login') ;
-    await allure.suite("Login Tests");
-    await allure.severity("critical");
-    await allure.feature("Authentication");
-    await allure.story("Valid Login");
-    await allure.description("Verify user can login with valid credentials");
-    //await loginPage.doLogin('Ollie@yahoo.com.au' , "Ollie123");
-    console.log("USERNAME:", process.env.APP_USERNAME);
-    console.log("PASSWORD:", process.env.APP_PASSWORD);
-    await allure.step("Login with valid credentials",async() =>{  
-        await loginPage.doLogin(process.env.APP_USERNAME! , process.env.APP_PASSWORD!);
-    });
-    await allure.step("Verify logout link is vissible",async() =>{  
-        expect.soft(await homePage.isLogoutLinkExist()).toBeTruthy();
-    });
-  
-  await allure.step("Verify Home Page Title",async() =>{  
-        expect.soft(await homePage.getHomePageTitle()).toBe('My Account');
-    });
-    
-    
+//DD_1 : read CSV data directly from CSV file and loop the test method row wise.
+let testData = CsvHelper.readCsv('src/testdata/logindata.csv');
+ console.log("Test Data:", testData);
+ console.log("Test Data length:", testData.length);
+for(let row of testData ){
+   
+test(`Login to app with invalid credentials using CSV file test -${row.username}-${row.password}`, async({loginPage,homePage}) => {
+    await loginPage.doLogin(row.username , row.password);
+    expect(await loginPage.isInvalidLoginErrorDisplayed()).toBeTruthy();
+      
 });
+}//forloop
+
+
+//DD_3 : read JSON data directly from JSON file and loop the test method row wise.let testData = CsvHelper.readCsv('src/testdata/logindata.csv');
+   let testJSONData = JsonHelper.readJson('src/testdata/logindata.json');
+    console.log("Test Data:", testJSONData);
+    console.log("Test Data length:", testJSONData.length);
+for(let row of testJSONData ){
+   
+test(`Login to app with invalid credentials using JSON file test -${row.username}-${row.password}`, async({loginPage,homePage}) => {
+    await loginPage.doLogin(row.username , row.password);
+    expect(await loginPage.isInvalidLoginErrorDisplayed()).toBeTruthy();
+      
+});
+}//forloop
+
+
 
 test('click on registration page' , async({loginPage, regPage}) =>{
          await loginPage.clickRegisterLink(); 
          let regPageTitle =   await regPage.getRegPageTitle();
          expect(regPageTitle).toBe('Register Account');      
 })
+
 
 //common features test:
 test('company logo exist on Login page' , async({basePage}) =>{

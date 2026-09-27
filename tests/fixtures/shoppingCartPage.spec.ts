@@ -7,7 +7,7 @@ import {ShoppingCartPage} from '../../src/pages/ShoppingCartPage';
 
 test.beforeEach(async({loginPage})=>{    
     await  loginPage.goToLoginPage();
-    await loginPage.doLogin(process.env.APP_USERNAME , process.env.APP_PASSWORD);  
+    await loginPage.doLogin(process.env.APP_USERNAME! , process.env.APP_PASSWORD!);  
 });
 
     test('products added in the cart test' , async({homePage , searchResultsPage , productInfoPage,shoppingCartPage, page}) =>{
