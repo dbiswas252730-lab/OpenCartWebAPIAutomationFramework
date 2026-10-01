@@ -19,22 +19,28 @@ export class BasePage {
         this.searchIcon = page.locator('div#search button');
         this.footerLink  = page.locator('footer a');
         this.currency = page.locator('#form-currency');
-        this.cartButton = page.locator('div#cart button');
+        //this.cartButton = page.locator('div#cart button');
+        this.cartButton =  page.locator('.container > .row > .col-sm-3 > #cart > button');
      }
      //App common features/actions: footer logo Search
      async isLogoVisisble():Promise<boolean> {
+      await this.logo.waitFor({ state: 'visible' });
       return this.logo.isVisible();
      }
      async isSearchBoxVisisble():Promise<boolean> {
+       await this.searchBox.waitFor({ state: 'visible' });
       return this.searchBox.isVisible();
      }
      async isSearchIconVisisble():Promise<boolean> {
+      await this.searchIcon.waitFor({ state: 'visible' });
       return this.searchIcon.isVisible();
      }
      async isCurrencyVisisble():Promise<boolean> {
+      await this.currency.waitFor({ state: 'visible' });
       return this.currency.isVisible();
      }
      async iscartButtonVisisble():Promise<boolean> {
+      await this.cartButton.waitFor({ state: 'visible' });
       return this.cartButton.isVisible();
      }
      async getPageFooterCounts():Promise<number>{

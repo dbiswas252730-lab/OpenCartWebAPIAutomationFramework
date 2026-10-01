@@ -16,10 +16,10 @@ type ApiFixtures = {
       await use(apiHelper);
 
       },
-      bookerApiHelper:async({request} ,use)=>{
-          let bookerApiHelper = new ApiHelper(request , process.env.BOOKER_BASE_URL!);
-           await use(bookerApiHelper);
-      }
+        bookerApiHelper:async({request} ,use)=>{
+        let bookerApiHelper = new ApiHelper(request , process.env.BOOKER_BASE_URL!);
+        await use(bookerApiHelper);
+       }
 });
 
 export {expect} from '@playwright/test';

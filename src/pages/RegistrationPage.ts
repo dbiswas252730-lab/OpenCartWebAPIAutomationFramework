@@ -44,12 +44,14 @@ export class RegistrationPage extends BasePage{
 
  //3. public page action(methods) /behaviour :Encapsulation
     async doNewRegistration (fName:string , lName:string, email:string ,tel:string ,
-                             pwd:string , confirmpwd: string , subbtn:boolean, policychk:boolean ):Promise<void> 
+                             pwd:string , confirmpwd: string , subbtn:string, policychk:string ):Promise<void> 
     {
     console.log(`user registration data : $(fName) - $(lName)  - $(email) 
                 $(tel) - $(pwd) - $(confirmpwd) - subbtn $(subbtn)- policychk $(policychk) `);
     await this.firstName.fill(fName);
     await this.lastName.fill(lName);
+    const randomId = Math.random().toString(36).substring(2, 8);
+    email = randomId+email;
     await this.email.fill(email);
     await this.telephone.fill(tel);
     await this.password.fill(pwd);

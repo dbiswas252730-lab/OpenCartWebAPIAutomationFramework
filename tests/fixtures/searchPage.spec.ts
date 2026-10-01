@@ -32,7 +32,8 @@ for(let [index , row] of productData.entries() ) {
 test(`verify user is able to land on the product page ${index}  ${row.searchkey} , ${row.productname}` , async({homePage ,searchResultsPage ,page})=>{
       await homePage.doSearch(row.searchkey);
       await searchResultsPage.selectProduct(row.productname);
-     expect (await page.title()).toBe(row.productname);
+       //expect (await page.title()).toBe(row.productname);
+       await expect(page.locator('h1')).toHaveText(row.productname);
        await page.waitForTimeout(4000);
   })
 

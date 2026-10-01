@@ -9,7 +9,8 @@ import { JsonHelper } from '../../src/utils/JsonHelper';
 
 
 test.beforeEach(async ({loginPage})=> {
-    
+          console.log("USERNAME:", process.env.APP_USERNAME);
+                  
     await loginPage.goToLoginPage();
     
 } )

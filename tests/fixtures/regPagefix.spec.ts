@@ -25,9 +25,6 @@ test('reg page title test ', async({loginPage ,regPage }) => {
             expect.soft( await acctPage.getaccountPageHeader()).toBe('Your Account Has Been Created!');
       
  })    
-
-
-
  
  //DD_1 : read CSV data directly from CSV file and loop the test method row wise.
  let testData = CsvHelper.readCsv('src/testdata/regdata.csv');

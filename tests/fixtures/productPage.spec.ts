@@ -4,7 +4,9 @@ import { ProductInfoPage } from '../../src/pages/ProductInfoPage';
 import { SearchResultsPage } from '../../src/pages/SearchResultsPage';
 
 
-test.beforeEach(async({loginPage})=>{    
+test.beforeEach(async({loginPage})=>{  
+          console.log("USERNAME:", process.env.APP_USERNAME);
+             
     await  loginPage.goToLoginPage();
     //await loginPage.doLogin('Ollie@yahoo.com.au' , "Ollie123");  
     await loginPage.doLogin(process.env.APP_USERNAME! , process.env.APP_PASSWORD!);  
@@ -14,14 +16,14 @@ test('verify product header test' , async({homePage , searchResultsPage , produc
     await homePage.doSearch('macbook');
     await searchResultsPage.selectProduct('MacBook Pro');
     expect(await productInfoPage.getProductHeader()).toBe('MacBook Pro');
-    await page.pause();
+    //await page.pause();
  });
 
  test('verify product images count  test' , async({homePage , searchResultsPage , productInfoPage,page}) =>{
     await homePage.doSearch('macbook');
     await searchResultsPage.selectProduct('MacBook Pro');
     expect(await productInfoPage.getProductImagesCount()).toBe(4);
-    await page.pause();
+   // await page.pause();
  });
 
   test('verify product info data  test' , async({homePage , searchResultsPage , productInfoPage,page}) =>{

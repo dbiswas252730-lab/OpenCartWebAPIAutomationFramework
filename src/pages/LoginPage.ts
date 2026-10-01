@@ -4,6 +4,7 @@ import { BasePage } from "./BasePage";
 
 export class LoginPage extends BasePage{
 
+
    //1. private locators
    private readonly emailId : Locator;
    private readonly password: Locator;
@@ -26,7 +27,8 @@ export class LoginPage extends BasePage{
       this.loginErrorMessage = page.locator('.alert.alert-danger.alert-dismissible');
       this.returningCustomerHeader =page.getByRole('heading', { name: 'Returning Customer', level: 2 });
       this.NewCustomer =page.getByRole('heading', { name: 'New Customer', level: 2 });
-      this.registerlink = page.getByRole('link', { name: 'Register' });
+      //this.registerlink = page.getByRole('link', { name: 'Register' }).nth(1); 
+      this.registerlink =page.locator('.list-group').getByRole('link', { name: 'Register', exact: true });
    }
 
    //3. public page action(methods) /behaviour :Encapsulation
@@ -43,7 +45,8 @@ export class LoginPage extends BasePage{
    }
 
    async doLogin(username :string , password: string) :Promise<void>{
-    console.log(`app users credentials : $(username) -  $(password)`);
+
+   // console.log(`app users credentials : $(username) -  $(password)`);
     await  this.emailId.fill(username);
     await this.password.fill(password);
     await this.loginBtn.click();
@@ -64,4 +67,7 @@ export class LoginPage extends BasePage{
    async clickRegisterLink():Promise<void>{
         await this.registerlink.click();
    }
+   async getLoginPageTitle(): Promise<string> {
+        return await this.page.title();
+    }
 }

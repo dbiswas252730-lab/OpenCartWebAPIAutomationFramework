@@ -6,7 +6,7 @@ import {test, expect} from  '@playwright/test';
 test('intercept and log request' , async ({page}) =>{
    
     //added routing listner
-    page.route("**/*" , async(route)  =>{
+    await page.route("**/*" , async(route)  =>{
         console.log(route.request().method() ,  route.request().url());
         await  route.continue(); //url1 -capture url2 -capture 
     });
@@ -34,14 +34,14 @@ test('mock search data sql ' , async ({page}) =>{
           });
  });
     await page.goto('https://abc.com/index.php?route=product/search&search=macbook');
-    await page.pause();
+   // await page.pause();
 }) ;   
 
-test('intercepts & log request' , async ({page}) =>{
+test('intercepts & log request another' , async ({page}) =>{
    
     //added routing listner
       // Intercept every network request
-    page.route("**/*" , async(route)  =>{
+    await page.route("**/*" , async(route)  =>{
         console.log(route.request().method() ,  route.request().url());
          // Allow the request to continue to the real server
          // 1. Log + allow real request
@@ -83,8 +83,9 @@ test('mock search result fake HTML ' , async ({page}) =>{
                                 <h4><a href="#">Fake iPhone</a></h4>
                                 <p class="price">$999</p>
                                 </div>
-                                </html>
-                                </body>`
+                                </body>
+                                </html>`
+                                
           });
  });
   //Navigate to the URL that matches the route
@@ -96,7 +97,7 @@ test('mock search result fake HTML ' , async ({page}) =>{
     expect(products).toEqual(['Fake Mac Products' ,'Fake iPhone' ]);
     const price = await page.locator('.price').allTextContents();
     expect(price).toEqual(['$599' ,'$999' ]);
-    await page.pause();
+    //await page.pause();
 }) ;   
 
 test('negative test - search API returns 401 Unauthorized', async ({ page }) => {
@@ -136,7 +137,7 @@ test('negative test - search API returns 401 Unauthorized', async ({ page }) => 
   expect(errorMessage).toBe(
     'You are not authorized to perform this search.'
   );
-  await page.pause();
+  //await page.pause();
 });
 test('negative test - search API returns HTTP 501 — Not Implemented', async ({ page }) => {
 
@@ -167,7 +168,7 @@ test('negative test - search API returns HTTP 501 — Not Implemented', async ({
 
   // Verify 501 error response is displayed
   await expect(page.locator('h1'))
-    .toHaveText('Not Implemented');
+    .toHaveText('Not Implemented'); 
 
   await expect(page.locator('p'))
     .toHaveText('Search service is not implemented.');

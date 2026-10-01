@@ -47,36 +47,101 @@ test('create users POST api test' ,async({request}) =>{
 
 test('update user PUT api test' ,async({request}) =>{
     
-      //User JS Object - to convert in JSON (serialization) 
-      let userData  = {
-          "name" : "Ollie ",
-          "status" : "inactive",
-          "gender" : "female",
-          "email" : "Ollieautomation@gmail.com"
-      };
+       // 1. Create a fresh user first
+  const createData = {
+    name: 'Ollie Update Test User',
+    status: 'active',
+    gender: 'female',
+    email: `Ollie_update_${Date.now()}@gmail.com`
+  };
 
-     let response:APIResponse = await request.put('https://gorest.co.in/public/v2/users/8625519' ,{
-        headers : AUTH_TOKEN,
-        data : userData,
-     });
+  const createResponse = await request.post(
+    'https://gorest.co.in/public/v2/users',
+    {
+      headers: AUTH_TOKEN,
+      data: createData
+    }
+  );
 
-     let jsonBody = await response.json();
-     console.log("Deatils User updated  :" ,jsonBody );
-     console.log("status :" , response.status()); //200
-     console.log("status text :" , response.statusText()); //ok
-     expect (response.status()) .toBe(200);
+  expect(createResponse.status()).toBe(201);
 
-})
+  const createdUser = await createResponse.json();
+  const userId = createdUser.id;
+
+  console.log('Created user id:', userId);
+
+  // 2. Update newly created user
+  const updateData = {
+    name: 'Ollie Updated',
+    status: 'inactive',
+    gender: 'female',
+    email: `Ollie_updated_${Date.now()}@gmail.com`
+  };
+
+  const response = await request.put(
+    `https://gorest.co.in/public/v2/users/${userId}`,
+    {
+      headers: AUTH_TOKEN,
+      data: updateData
+    }
+  );
+
+  const jsonBody = await response.json();
+
+  console.log('Updated user:', jsonBody);
+  console.log('status:', response.status());
+
+  expect(response.status()).toBe(200);
+  expect(jsonBody.name).toBe('Ollie Updated');
+  expect(jsonBody.status).toBe('inactive');
+});
 
 test('delete user DELETE api test' ,async({request}) =>{
     
-     let response:APIResponse = await request.delete('https://gorest.co.in/public/v2/users/8625519' ,{
-        headers : AUTH_TOKEN,
-       });
+     // 1. Create a user first
+  const userData = {
+    name: 'Ollie Delete Test User',
+    status: 'active',
+    gender: 'male',
+    email: `Ollie_delete_${Date.now()}@gmail.com`
+  };
 
-     console.log("status :" , response.status()); //204
-     console.log("status text :" , response.statusText()); //No content
-     expect (response.status()).toBe(204);
+  const createResponse = await request.post(
+    'https://gorest.co.in/public/v2/users',
+    {
+      headers: AUTH_TOKEN,
+      data: userData
+    }
+  );
+
+  expect(createResponse.status()).toBe(201);
+
+  const createdUser = await createResponse.json();
+  const userId = createdUser.id;
+
+  console.log('Created user id:', userId);
+
+  // 2. Delete that user
+  const response = await request.delete(
+    `https://gorest.co.in/public/v2/users/${userId}`,
+    {
+      headers: AUTH_TOKEN
+    }
+  );
+
+  console.log('Delete status:', response.status());
+
+  expect(response.status()).toBe(204);
+
+  // 3. Optional: verify it no longer exists
+  const getResponse = await request.get(
+    `https://gorest.co.in/public/v2/users/${userId}`,
+    {
+      headers: AUTH_TOKEN
+    }
+  );
+
+  expect(getResponse.status()).toBe(404);
 
 })
 
