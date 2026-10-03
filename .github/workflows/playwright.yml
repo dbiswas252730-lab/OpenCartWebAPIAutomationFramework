@@ -1,12 +1,6 @@
 name: Playwright Tests
 
 on:
-  # schedule:
-  #   - cron: '30 21 * * 1-4'  # Mon-Fri 8PM IST
-  # push:
-  #   branches: [main]
-  # pull_request:
-  #   branches: [main]
   workflow_dispatch:
     inputs:
       environment:
@@ -53,8 +47,6 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit == 'true'
         run: npx playwright install-deps chromium
 
-      # reportingLabs run history: powers the Trend chart, new vs known
-      # failures, flaky dots and "got slower". One history per environment.
       - name: Restore reportingLabs history
         uses: actions/cache@v4
         with:
@@ -62,13 +54,31 @@ jobs:
           key: reporting-labs-history-${{ github.event.inputs.environment || 'QA' }}-${{ github.run_id }}
           restore-keys: reporting-labs-history-${{ github.event.inputs.environment || 'QA' }}-
 
+      - name: Check environment variables
+        run: |
+          echo "ENV=$ENV"
+          echo "BASE_URL present: ${{ secrets.BASE_URL != '' }}"
+          echo "APP_USERNAME present: ${{ secrets.APP_USERNAME != '' }}"
+          echo "APP_PASSWORD present: ${{ secrets.APP_PASSWORD != '' }}"
+          echo "API_BASE_URL present: ${{ secrets.API_BASE_URL != '' }}"
+          echo "API_TOKEN present: ${{ secrets.API_TOKEN != '' }}"
+          echo "BOOKER_BASE_URL present: ${{ secrets.BOOKER_BASE_URL != '' }}"
+          echo "BOOKER_USERNAME present: ${{ secrets.BOOKER_USERNAME != '' }}"
+          echo "BOOKER_PASSWORD present: ${{ secrets.BOOKER_PASSWORD != '' }}"
+          echo "OAUTH_CLIENT_ID present: ${{ secrets.OAUTH_CLIENT_ID != '' }}"
+          echo "OAUTH_CLIENT_SECRET present: ${{ secrets.OAUTH_CLIENT_SECRET != '' }}"
+          echo "GRANT_TYPE present: ${{ secrets.GRANT_TYPE != '' }}"
+          echo "SPOTIFY_BASE_URL present: ${{ secrets.SPOTIFY_BASE_URL != '' }}"
+        env:
+          ENV: ${{ github.event.inputs.environment || 'QA' }}
+
       - name: Run tests
         run: npx playwright test --project=chromium
         env:
           ENV: ${{ github.event.inputs.environment || 'QA' }}
           BASE_URL: ${{ secrets.BASE_URL }}
-          USERNAME: ${{ secrets.USERNAME }}
-          PASSWORD: ${{ secrets.PASSWORD }}
+          APP_USERNAME: ${{ secrets.APP_USERNAME }}
+          APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
           API_BASE_URL: ${{ secrets.API_BASE_URL }}
           API_TOKEN: ${{ secrets.API_TOKEN }}
           BOOKER_BASE_URL: ${{ secrets.BOOKER_BASE_URL }}
@@ -77,6 +87,7 @@ jobs:
           OAUTH_CLIENT_ID: ${{ secrets.OAUTH_CLIENT_ID }}
           OAUTH_CLIENT_SECRET: ${{ secrets.OAUTH_CLIENT_SECRET }}
           GRANT_TYPE: ${{ secrets.GRANT_TYPE }}
+          SPOTIFY_BASE_URL: ${{ secrets.SPOTIFY_BASE_URL }}
 
       - name: Upload HTML Report
         if: always()
