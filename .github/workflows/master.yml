@@ -224,6 +224,15 @@ jobs:
           key: reporting-labs-history-qa-${{ github.run_id }}
           restore-keys: reporting-labs-history-qa-
 
+      - name: Debug checked out code
+        run: |
+             echo "Commit being tested:"
+             git rev-parse HEAD
+             echo "Branch:"
+             git branch --show-current
+             echo "LoginPage goto:"
+             grep -n "goto" src/pages/LoginPage.ts      
+
       - name: Run Regression Tests on QA
         run: |
           echo "========================================="
@@ -297,7 +306,7 @@ jobs:
       - name: Checkout QA repo
         uses: actions/checkout@v4
         with:
-          repository: naveenanimation20/OpenCartWebAPIAutomationFramework
+          repository: dbiswas252730-lab/OpenCartWebAPIAutomationFramework
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -404,7 +413,7 @@ jobs:
       - name: Checkout QA repo
         uses: actions/checkout@v4
         with:
-          repository: naveenanimation20/OpenCartWebAPIAutomationFramework
+          repository: dbiswas252730-lab/OpenCartWebAPIAutomationFramework
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
