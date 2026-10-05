@@ -35,7 +35,7 @@ jobs:
   # ═════════════════════════════════════════════════════
   build:
     name: Build & Unit Tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout DEV repo
         uses: actions/checkout@v4
@@ -71,7 +71,7 @@ jobs:
   deploy-dev:
     name: Deploy to DEV
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Deploy to DEV
         run: echo "Deployed to DEV ✅"
@@ -176,7 +176,7 @@ jobs:
     name: Deploy to QA
     needs: sanity-dev
     if: contains(fromJSON('["QA","stage","Prod"]'), github.event.inputs.environment)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Deploy to QA
         run: echo "Deployed to QA ✅"
@@ -185,7 +185,7 @@ jobs:
     name: QA - Regression Tests
     needs: deploy-qa
     if: contains(fromJSON('["QA","stage","Prod"]'), github.event.inputs.environment)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     environment: QA
     steps:
       - name: Checkout QA repo
@@ -283,7 +283,7 @@ jobs:
     name: Deploy to STAGE
     needs: regression-qa
     if: contains(fromJSON('["stage","Prod"]'), github.event.inputs.environment)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Deploy to STAGE
         run: echo "Deployed to STAGE ✅"
@@ -389,7 +389,7 @@ jobs:
     name: Deploy to PROD
     needs: sanity-stage
     if: github.event.inputs.environment == 'Prod'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     environment: Prod
     steps:
       - name: Deploy to PROD
@@ -399,7 +399,7 @@ jobs:
     name: PROD - Smoke Tests
     needs: deploy-prod
     if: github.event.inputs.environment == 'Prod'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     environment: Prod
     steps:
       - name: Checkout QA repo
@@ -497,7 +497,7 @@ jobs:
     name: Publish Reports + Notify
     needs: [build, sanity-dev, regression-qa, sanity-stage, smoke-prod]
     if: always()
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       pages: write
       id-token: write
