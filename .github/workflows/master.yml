@@ -241,6 +241,7 @@ jobs:
           npx playwright test --project=chromium --grep @regression
         env:
           ENV: qa
+          BASE_URL: ${{ secrets.BASE_URL }}
           APP_USERNAME: ${{ secrets.APP_USERNAME }}
           APP_PASSWORD: ${{ secrets.APP_PASSWORD}}
           API_BASE_URL: ${{ secrets.API_BASE_URL }}
@@ -347,6 +348,7 @@ jobs:
           npx playwright test --project=chromium --grep @smoke
         env:
           ENV: stage
+          BASE_URL: ${{ secrets.BASE_URL }}
           APP_USERNAME: ${{ secrets.APP_USERNAME }}
           APP_PASSWORD: ${{ secrets.APP_PASSWORD}}
           API_BASE_URL: ${{ secrets.API_BASE_URL }}
@@ -454,6 +456,7 @@ jobs:
           npx playwright test --project=chromium --grep @smoke
         env:
           ENV: prod
+          BASE_URL: ${{ secrets.BASE_URL }}
           APP_USERNAME: ${{ secrets.APP_USERNAME }}
           APP_PASSWORD: ${{ secrets.APP_PASSWORD}}
           API_BASE_URL: ${{ secrets.API_BASE_URL }}
