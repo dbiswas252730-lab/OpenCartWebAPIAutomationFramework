@@ -33,7 +33,7 @@ export class LoginPage extends BasePage{
 
    //3. public page action(methods) /behaviour :Encapsulation
    async goToLoginPage() : Promise<void> {
-        await this.page.goto('opencart/index.php?route=account/login');
+        await this.page.goto('/opencart/index.php?route=account/login');
    }
    //using Base class inherit method 
 //    async getLoginPageTitle() : Promise<string> {
