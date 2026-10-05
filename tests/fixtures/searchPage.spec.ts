@@ -15,12 +15,15 @@ let productData =CsvHelper.readCsv('src/testdata/product.csv');
 for (let row of productData ){
 test(`@regression verify search result count test - ${row.searchkey}   ${row.productname}` , async({homePage ,searchResultsPage}) =>{
       await homePage.doSearch(row.searchkey);
-      let actualresultCount = await searchResultsPage.getProductSearchResultsCount();
+     let actualresultCount = await searchResultsPage.getProductSearchResultsCount();
+      //const products = page.locator('div.product-layout');
+
+//await expect(products).toHaveCount( Number(row.resultcount));
      // let serchfootercount = await  searchResultsPage.getSearchFooterMessage()
-      console.log('resultCount :: ' , actualresultCount);
+    console.log('resultCount :: ' , actualresultCount);
       //console.log('serchfootercount :: '  ,serchfootercount);
      
-      expect.soft (actualresultCount).toBe(Number(row.resultcount));
+     expect.soft (actualresultCount).toBe(Number(row.resultcount));
      //expect.soft (actualresultCount).toBe(serchfootercount);
      
 })

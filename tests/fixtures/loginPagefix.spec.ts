@@ -49,7 +49,7 @@ test('@regression user is able to login to app with valid credentials', async ({
     await allure.description("Verify user can login with valid credentials");
 
     await allure.step("Login with valid creds", async () => {
-        await loginPage.doLogin(process.env.USERNAME!, process.env.PASSWORD!);
+        await loginPage.doLogin(process.env.APP_USERNAME!, process.env.APP_PASSWORD!);
     });
 
     await allure.step("Verify logout link is visible", async () => {

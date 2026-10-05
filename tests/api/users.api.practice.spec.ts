@@ -7,7 +7,7 @@ let AUTH_TOKEN = {
 
 };
 
-test.skip('get all users GET api test' ,async({request}) =>{
+test('get all users GET api test' ,async({request}) =>{
 
     let response: APIResponse = await request.get('https://gorest.co.in/public/v2/users' , {
         headers : AUTH_TOKEN
@@ -22,7 +22,7 @@ test.skip('get all users GET api test' ,async({request}) =>{
 
 })
 
-test.skip('create users POST api test' ,async({request}) =>{
+test('create users POST api test' ,async({request}) =>{
 
       //User JS Object - to convert in JSON (serialization) 
       let userData  = {
@@ -45,7 +45,7 @@ test.skip('create users POST api test' ,async({request}) =>{
 
 })
 
-test.skip('update user PUT api test' ,async({request}) =>{
+test('update user PUT api test' ,async({request}) =>{
     
        // 1. Create a fresh user first
   const createData = {
@@ -96,7 +96,7 @@ test.skip('update user PUT api test' ,async({request}) =>{
   expect(jsonBody.status).toBe('inactive');
 });
 
-test.skip('delete user DELETE api test' ,async({request}) =>{
+test('delete user DELETE api test' ,async({request}) =>{
     
      // 1. Create a user first
   const userData = {
