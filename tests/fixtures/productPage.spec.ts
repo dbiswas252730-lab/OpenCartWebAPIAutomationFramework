@@ -12,21 +12,21 @@ test.beforeEach(async({loginPage})=>{
     await loginPage.doLogin(process.env.APP_USERNAME! , process.env.APP_PASSWORD!);  
 });
 
-test('verify product header test' , async({homePage , searchResultsPage , productInfoPage,page}) =>{
+test('@smoke verify product header test' , async({homePage , searchResultsPage , productInfoPage,page}) =>{
     await homePage.doSearch('macbook');
     await searchResultsPage.selectProduct('MacBook Pro');
     expect(await productInfoPage.getProductHeader()).toBe('MacBook Pro');
     //await page.pause();
  });
 
- test('verify product images count  test' , async({homePage , searchResultsPage , productInfoPage,page}) =>{
+ test('@regression verify product images count  test' , async({homePage , searchResultsPage , productInfoPage,page}) =>{
     await homePage.doSearch('macbook');
     await searchResultsPage.selectProduct('MacBook Pro');
     expect(await productInfoPage.getProductImagesCount()).toBe(4);
    // await page.pause();
  });
 
-  test('verify product info data  test' , async({homePage , searchResultsPage , productInfoPage,page}) =>{
+  test('@regression verify product info data  test' , async({homePage , searchResultsPage , productInfoPage,page}) =>{
     await homePage.doSearch('macbook');
     await searchResultsPage.selectProduct('MacBook Pro');
     let actualProductInfoMap = await productInfoPage.getProductInfo();
@@ -46,7 +46,7 @@ test('verify product header test' , async({homePage , searchResultsPage , produc
     //await page.pause();
  });
 
- test('verify items added in cart test' , async({homePage , searchResultsPage ,productInfoPage,page}) =>{
+ test('@regression verify items added in cart test' , async({homePage , searchResultsPage ,productInfoPage,page}) =>{
       await homePage.doSearch('macbook');
        await searchResultsPage.selectProduct('MacBook Pro');
        let actualProductInfoMap = await productInfoPage.getProductInfo();
@@ -61,15 +61,15 @@ test('verify product header test' , async({homePage , searchResultsPage , produc
 
  
 //common features test:
-test('company logo exist on Login page' , async({basePage}) =>{
+test('@smoke company logo exist on Login page' , async({basePage}) =>{
     expect(await basePage.isLogoVisisble()).toBeTruthy();
 })
-test('search box exist on Login page' , async({basePage}) =>{
+test('@smoke search box exist on Login page' , async({basePage}) =>{
     expect(await basePage.isSearchBoxVisisble()).toBeTruthy();
 })
-test('cart exist on Login page' , async({basePage}) =>{
+test('@smoke cart exist on Login page' , async({basePage}) =>{
     expect(await basePage.iscartButtonVisisble()).toBeTruthy();
 })
-test('footer exist on Login page' , async({basePage}) =>{
+test('@smoke footer exist on Login page' , async({basePage}) =>{
     expect(await basePage.getPageFooterCounts()).toBe(16);
 })

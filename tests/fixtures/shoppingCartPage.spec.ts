@@ -10,7 +10,7 @@ test.beforeEach(async({loginPage})=>{
     await loginPage.doLogin(process.env.APP_USERNAME! , process.env.APP_PASSWORD!);  
 });
 
-    test('products added in the cart test' , async({homePage , searchResultsPage , productInfoPage,shoppingCartPage, page}) =>{
+    test('@regression products added in the cart test' , async({homePage , searchResultsPage , productInfoPage,shoppingCartPage, page}) =>{
         await homePage.doSearch('macbook');
         await searchResultsPage.selectProduct('MacBook Pro');
         let actualProductInfoMap = await productInfoPage.getProductInfo();

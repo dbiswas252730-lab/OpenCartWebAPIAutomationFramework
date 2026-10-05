@@ -12,15 +12,16 @@ test.beforeEach(async ({loginPage})=> {
     
 } )
 
-test('reg page title test ', async({loginPage ,regPage }) => {
+test('@smoke reg page title test ', async({loginPage ,regPage }) => {
 
         await loginPage.clickRegisterLink(); 
          let regPageTitle =   await regPage.getRegPageTitle();
          expect(regPageTitle).toBe('Register Account');     
 
      })
- test('fill new registration data test' , async({regPage,acctPage  }) => {
-            await regPage.doNewRegistration('Nilank12','Biswas','nb123@yahoo.com' , '123456' ,
+ test('@smoke fill new registration data test' , async({regPage,acctPage  }) => {
+            const email = `nb${Date.now()}@yahoo.com`;
+            await regPage.doNewRegistration('Nilank12','Biswas',email , '123456' ,
              'pwd1234' ,'pwd1234' ,false,true);
             expect.soft( await acctPage.getaccountPageHeader()).toBe('Your Account Has Been Created!');
       
@@ -31,7 +32,7 @@ test('reg page title test ', async({loginPage ,regPage }) => {
   console.log("Test Data:", testData);
      console.log("Test Data length:", testData.length);
  for(let row of testData ){
- test(`fill new registration form using CSV  data test ${row.firstname}` , async({regPage,acctPage  }) => {
+ test(`@regression fill new registration form using CSV  data test ${row.firstname}` , async({regPage,acctPage  }) => {
             await regPage.doNewRegistration(row.firstname, row.lastname , row.Email,
                    row.Telephone,row.Password,row.PasswordConfirm, row.subscribe,
                    row.Policy                      

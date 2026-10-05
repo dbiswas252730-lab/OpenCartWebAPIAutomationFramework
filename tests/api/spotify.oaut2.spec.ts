@@ -28,7 +28,7 @@ test.beforeEach('POST- generate the access token' , async({request}) => {
     console.log("AccessToken  -> ",accessToken);
 })
 
-test('get ALbumns data test' , async({request}) =>{
+test('@regression get ALbumns data test' , async({request}) =>{
     //https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTy
     let endpointURL= 'v1/albums/4aawyAB9vmqN3uQ7FjRGTy';
     let albumResponse =await request.get(`${process.env.SPOTIFY_BASE_URL}${endpointURL}`,{
@@ -46,7 +46,7 @@ test('get ALbumns data test' , async({request}) =>{
          
 })
 
-test('Get the chapters test' , async({request}) =>{
+test('@smoke Get the chapters test' , async({request}) =>{
     //url
     let endpoint = 'v1/chapters/0D5wENdkdwbqlrHoaJ9g29';
     let chapterResponse = await request.get(`${process.env.SPOTIFY_BASE_URL}${endpoint}`,{

@@ -3,7 +3,7 @@ import {test, expect} from  '@playwright/test';
 
 //web app -> intercept the network call and log them
 //**/ * -> wildcard pattern for the url
-test('intercept and log request' , async ({page}) =>{
+test('@smoke intercept and log request' , async ({page}) =>{
    
     //added routing listner
     await page.route("**/*" , async(route)  =>{
@@ -18,7 +18,7 @@ test('intercept and log request' , async ({page}) =>{
 //intercept with mocking
 //mocking fake data/response
 
-test('mock search data sql ' , async ({page}) =>{
+test('smoke mock search data sql ' , async ({page}) =>{
   //fake products
   let fakeProducts = [{name: 'Fake Macbook Pro' , Price: '$5999'},
                        {name: 'Fake iphone 800' , Price:'$67899'}

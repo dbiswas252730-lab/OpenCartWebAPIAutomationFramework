@@ -14,7 +14,7 @@ let AUTH_HEADER ={
 test.describe.serial('running e2e go rest crud apis test',() => {
 
     //GET Test:
-    test('GET API -get all users' , async({apiHelper}) =>{
+    test('@smoke @regression GET API -get all users' , async({apiHelper}) =>{
         let response = await apiHelper.get('/public/v2/users',AUTH_HEADER);
         expect(response.status).toBe(200);
         expect(response.body.length).toBeGreaterThan(0);
@@ -22,7 +22,7 @@ test.describe.serial('running e2e go rest crud apis test',() => {
     })
 
     //POST Test
-    test('POST API -create a new user ' , async ({apiHelper}) =>{
+    test('@regression POST API -create a new user ' , async ({apiHelper}) =>{
           //User JS Object - to convert in JSON (serialization) 
       let userData  = {
           "name" : "Ollie Automation Test User",
@@ -37,7 +37,7 @@ test.describe.serial('running e2e go rest crud apis test',() => {
     })
 
     //PUT Test Idempotency
-    test('PUT API -update  user ' , async ({apiHelper}) =>{
+    test('@regression PUT API -update  user ' , async ({apiHelper}) =>{
           //User JS Object - to convert in JSON (serialization) 
       let userData  = {
           "name" : "Ollie Automation Test User",
@@ -52,14 +52,14 @@ test.describe.serial('running e2e go rest crud apis test',() => {
     })
     
        //DELETE Test
-    test('DELETE API -delete  user ' , async ({apiHelper}) =>{
+    test('@regression DELETE API -delete  user ' , async ({apiHelper}) =>{
         let response =  await apiHelper.delete(`/public/v2/users/${userId}` ,AUTH_HEADER);
         expect (response.status).toBe(204);
     })
 
     
     //GET Test:
-    test('GET API -get specific  users' , async({apiHelper}) =>{
+    test('@regression GET API -get specific  users' , async({apiHelper}) =>{
         let response = await apiHelper.get(`/public/v2/users/${userId}`,AUTH_HEADER);
         expect(response.status).toBe(404);
         

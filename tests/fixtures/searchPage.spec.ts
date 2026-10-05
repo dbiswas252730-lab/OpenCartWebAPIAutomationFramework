@@ -13,7 +13,7 @@ test.beforeEach(async({loginPage})=>{
 test.describe('CSV search test', ()=> {    
 let productData =CsvHelper.readCsv('src/testdata/product.csv');
 for (let row of productData ){
-test(`verify search result count test - ${row.searchkey}   ${row.productname}` , async({homePage ,searchResultsPage}) =>{
+test(`@regression verify search result count test - ${row.searchkey}   ${row.productname}` , async({homePage ,searchResultsPage}) =>{
       await homePage.doSearch(row.searchkey);
       let actualresultCount = await searchResultsPage.getProductSearchResultsCount();
      // let serchfootercount = await  searchResultsPage.getSearchFooterMessage()
@@ -29,7 +29,7 @@ test(`verify search result count test - ${row.searchkey}   ${row.productname}` ,
 
 let productData =CsvHelper.readCsv('src/testdata/product.csv');
 for(let [index , row] of productData.entries() ) {
-test(`verify user is able to land on the product page ${index}  ${row.searchkey} , ${row.productname}` , async({homePage ,searchResultsPage ,page})=>{
+test(`@smoke  verify user is able to land on the product page ${index}  ${row.searchkey} , ${row.productname}` , async({homePage ,searchResultsPage ,page})=>{
       await homePage.doSearch(row.searchkey);
       await searchResultsPage.selectProduct(row.productname);
        //expect (await page.title()).toBe(row.productname);
@@ -39,15 +39,15 @@ test(`verify user is able to land on the product page ${index}  ${row.searchkey}
 
 }
 //common features test:
-test('company logo exist on Login page' , async({basePage}) =>{
+test('@smoke company logo exist on Login page' , async({basePage}) =>{
     expect(await basePage.isLogoVisisble()).toBeTruthy();
 })
-test('search box exist on Login page' , async({basePage}) =>{
+test('@smoke search box exist on Login page' , async({basePage}) =>{
     expect(await basePage.isSearchBoxVisisble()).toBeTruthy();
 })
-test('cart exist on Login page' , async({basePage}) =>{
+test('@smoke cart exist on Login page' , async({basePage}) =>{
     expect(await basePage.iscartButtonVisisble()).toBeTruthy();
 })
-test('footer exist on Login page' , async({basePage}) =>{
+test('@smoke footer exist on Login page' , async({basePage}) =>{
     expect(await basePage.getPageFooterCounts()).toBe(16);
 })

@@ -3,6 +3,7 @@ import { ApiHelper } from '../../src/api/ApiHelper';
 
 let bookingId: number;
 
+
 // --------------------
 // Helper: Create Token
 // --------------------
@@ -17,6 +18,7 @@ async function createToken(bookerApiHelper: ApiHelper): Promise<string> {
     'auth',
     authData
   );
+
 
   expect(response.status).toBe(200);
   expect(response.body.token).toBeTruthy();
@@ -56,7 +58,7 @@ async function createBooking(bookerApiHelper: ApiHelper) {
 // --------------------
 // TEST 1 - Create Token
 // --------------------
-test('create token', async ({ bookerApiHelper }) => {
+test('@regression create token', async ({ bookerApiHelper }) => {
 
   const token = await createToken(bookerApiHelper);
 
@@ -68,7 +70,7 @@ test('create token', async ({ bookerApiHelper }) => {
 // --------------------
 // TEST 2 - Create Booking
 // --------------------
-test('create booking', async ({ bookerApiHelper }) => {
+test('@regression create booking', async ({ bookerApiHelper }) => {
 
   const response = await createBooking(bookerApiHelper);
 
@@ -82,7 +84,7 @@ test('create booking', async ({ bookerApiHelper }) => {
 // --------------------
 // TEST 3 - Get Booking
 // --------------------
-test('get booking', async ({ bookerApiHelper }) => {
+test('@regression get booking', async ({ bookerApiHelper }) => {
 
   // Arrange
   const createdBooking = await createBooking(bookerApiHelper);
@@ -104,7 +106,7 @@ test('get booking', async ({ bookerApiHelper }) => {
 // --------------------
 // TEST 4 - Update Booking
 // --------------------
-test('update booking', async ({ bookerApiHelper }) => {
+test('@regression update booking', async ({ bookerApiHelper }) => {
 
   // Arrange - create booking
   const createdBooking = await createBooking(bookerApiHelper);
@@ -148,7 +150,7 @@ test('update booking', async ({ bookerApiHelper }) => {
 // --------------------
 // TEST 5 - Delete Booking
 // --------------------
-test('delete booking', async ({ bookerApiHelper }) => {
+test('@regression delete booking', async ({ bookerApiHelper }) => {
 
   // Arrange - create booking
   const createdBooking = await createBooking(bookerApiHelper);

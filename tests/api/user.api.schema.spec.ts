@@ -57,7 +57,7 @@ let userArraySchema = {
 
 }
 
-test('get a user -test the schema' , async({apiHelper})=>{
+test('@smoke  get a user -test the schema' , async({apiHelper})=>{
 //user JS Object
       let userData  = {
           "name" : "Ollie Automation Test User",
