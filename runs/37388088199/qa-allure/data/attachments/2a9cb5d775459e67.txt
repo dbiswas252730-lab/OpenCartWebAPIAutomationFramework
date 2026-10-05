@@ -1,0 +1,2 @@
+search key ::  canon
+resultCount ::  1

@@ -1,0 +1,62 @@
+search key ::  macbook
+product name:  MacBook Pro
+ Product header in  getProductHeader() MacBook Pro
+Total Product Images :   4
+Actual Product details ::  Map(8) {
+  'productheader' => 'MacBook Pro',
+  'productimagescount' => 4,
+  'Brand' => 'Apple',
+  'Product Code' => 'Product 18',
+  'Reward Points' => '800',
+  'Availability' => 'Out Of Stock',
+  'productprice' => '$2,000.00',
+  'extTaxPrice' => '$2,000.00'
+}
+qty ::  1
+attribute1 :::  MacBook
+attribute2 :::  MacBook ***
+Reward Points: 600
+attribute3  :::  Product 16
+attribute4 :::  1
+attribute5 :::  $602.00
+attribute6 :::  $602.00
+product list array :  [
+  'MacBook',
+  'MacBook ***\nReward Points: 600',
+  'Product 16',
+  '1',
+  '$602.00',
+  '$602.00'
+]
+  productvalcount : [
+  'MacBook',
+  'MacBook ***\nReward Points: 600',
+  'Product 16',
+  '1',
+  '$602.00',
+  '$602.00'
+]
+Get Shopping Cart Header ->  [ 'Image', 'Product Name', 'Model', 'Quantity', 'Unit Price', 'Total' ]
+attribute1 :::  MacBook
+attribute2 :::  MacBook ***
+Reward Points: 600
+attribute3  :::  Product 16
+attribute4 :::  1
+attribute5 :::  $602.00
+attribute6 :::  $602.00
+product list array :  [
+  'MacBook',
+  'MacBook ***\nReward Points: 600',
+  'Product 16',
+  '1',
+  '$602.00',
+  '$602.00'
+]
+Shopping Cart Details:
+Image : MacBook
+Product Name : MacBook ***
+Reward Points: 600
+Model : Product 16
+Quantity : 1
+Unit Price : $602.00
+Total : $602.00

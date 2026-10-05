@@ -1,0 +1,16 @@
+In helper file POST {
+  id: 8651748,
+  name: 'Mille Parallel  Test User',
+  email: 'Milleautomation_1791242730985@gmail.com',
+  gender: 'female',
+  status: 'active'
+} 201
+In helper file GET {
+  id: 8651748,
+  name: 'Mille Parallel  Test User',
+  email: 'Milleautomation_1791242730985@gmail.com',
+  gender: 'female',
+  status: 'active'
+} 200
+In helper file DELTE 204
+In helper file GET { message: 'Resource not found' } 404

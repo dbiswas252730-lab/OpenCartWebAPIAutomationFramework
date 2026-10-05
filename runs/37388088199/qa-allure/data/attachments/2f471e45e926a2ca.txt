@@ -1,0 +1,15 @@
+USERNAME: Ollie@yahoo.com.au
+search key ::  macbook
+product name:  MacBook Pro
+ Product header in  getProductHeader() MacBook Pro
+Total Product Images :   4
+Actual Product details ::  Map(8) {
+  'productheader' => 'MacBook Pro',
+  'productimagescount' => 4,
+  'Brand' => 'Apple',
+  'Product Code' => 'Product 18',
+  'Reward Points' => '800',
+  'Availability' => 'Out Of Stock',
+  'productprice' => '$2,000.00',
+  'extTaxPrice' => '$2,000.00'
+}

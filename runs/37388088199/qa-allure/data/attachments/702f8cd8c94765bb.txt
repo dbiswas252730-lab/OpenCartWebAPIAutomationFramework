@@ -1,0 +1,72 @@
+In helper file GET [
+  {
+    id: 8651749,
+    name: 'Mille Parallel  Test User_Updated',
+    email: 'Milleautomation_1791242730241@gmail.com',
+    gender: 'female',
+    status: 'inactive'
+  },
+  {
+    id: 8651747,
+    name: 'Mille Parallel  Test User',
+    email: 'Milleautomation_1791242729541@gmail.com',
+    gender: 'female',
+    status: 'active'
+  },
+  {
+    id: 8651746,
+    name: 'Ollie Automation Test User',
+    email: 'Ollieautomation_1791242594645@gmail.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8651566,
+    name: 'Mille Parallel  Test User_Updated',
+    email: 'Milleautomation_1791227444328@gmail.com',
+    gender: 'female',
+    status: 'inactive'
+  },
+  {
+    id: 8651564,
+    name: 'Mille Parallel  Test User',
+    email: 'Milleautomation_1791227443523@gmail.com',
+    gender: 'female',
+    status: 'active'
+  },
+  {
+    id: 8651553,
+    name: 'The Hon. Ekaparnika Nehru',
+    email: 'nehru_hon_the_ekaparnika@dickens-mohr.example',
+    gender: 'male',
+    status: 'inactive'
+  },
+  {
+    id: 8651552,
+    name: 'Bharat Arora',
+    email: 'arora_bharat@murazik.example',
+    gender: 'male',
+    status: 'inactive'
+  },
+  {
+    id: 8651551,
+    name: 'Subhashini Deshpande',
+    email: 'deshpande_subhashini@kerluke-ziemann.example',
+    gender: 'female',
+    status: 'active'
+  },
+  {
+    id: 8651550,
+    name: 'Amb. Aagneya Dutta',
+    email: 'amb_dutta_aagneya@oreilly-berge.test',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8651549,
+    name: 'Ollie Automation Test User',
+    email: 'Ollieautomation_1791226573319@gmail.com',
+    gender: 'male',
+    status: 'active'
+  }
+] 200

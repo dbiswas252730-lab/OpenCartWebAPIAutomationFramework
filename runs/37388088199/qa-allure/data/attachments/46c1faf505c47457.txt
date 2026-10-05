@@ -1,0 +1,11 @@
+In helper file POST {
+  bookingid: 2440,
+  booking: {
+    firstname: 'Praveen',
+    lastname: 'Sequeira',
+    totalprice: 500,
+    depositpaid: true,
+    bookingdates: { checkin: '2026-10-10', checkout: '2026-10-15' },
+    additionalneeds: 'Breakfast'
+  }
+} 200

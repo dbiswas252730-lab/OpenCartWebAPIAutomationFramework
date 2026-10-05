@@ -1,0 +1,67 @@
+Token API response :  {
+  access_token: 'BQD0xvwPc4mpna25rjv2Iy665tlBajBwzT8e4HFYsGKhOrwxjsznv42-xwe4xyWuFYlVcoBYJskSWEh-9S0l1AtiycuBKdyAAEzEgRmx0HqUdki4MILVQL6lPEsSv4AoUl4XpvsulrcG',
+  token_type: 'Bearer',
+  expires_in: 3600
+}
+AccessToken  ->  BQD0xvwPc4mpna25rjv2Iy665tlBajBwzT8e4HFYsGKhOrwxjsznv42-xwe4xyWuFYlVcoBYJskSWEh-9S0l1AtiycuBKdyAAEzEgRmx0HqUdki4MILVQL6lPEsSv4AoUl4XpvsulrcG
+chaptersData  :::  {
+  restrictions: { reason: 'payment_required' },
+  id: '0D5wENdkdwbqlrHoaJ9g29',
+  description: '',
+  chapter_number: 0,
+  duration_ms: 42841,
+  explicit: false,
+  images: [
+    {
+      height: 640,
+      url: 'https://i.scdn.co/image/ab676663000022a8204a1dd5c41440c604783ab7',
+      width: 640
+    },
+    {
+      height: 300,
+      url: 'https://i.scdn.co/image/ab6766630000db5b204a1dd5c41440c604783ab7',
+      width: 300
+    },
+    {
+      height: 64,
+      url: 'https://i.scdn.co/image/ab6766630000703b204a1dd5c41440c604783ab7',
+      width: 64
+    }
+  ],
+  languages: [ 'en' ],
+  name: 'Introduction',
+  release_date: '2014-11-11',
+  release_date_precision: 'day',
+  is_playable: false,
+  html_description: 'Author(s): Cixin Liu<br/>Narrator(s): Luke Daniels<br/>The inspiration for the Netflix series 3 Body Problem!WINNER OF THE HUGO AWARD FOR BEST NOVELOver 1 million copies sold in North America“A mind-bending epic.”—The New York Times • “War of the Worlds for the 21st century.”—The Wall Street Journal • “Fascinating.”—TIME • “Extraordinary.”—The New Yorker • “Wildly imaginative.”—Barack Obama • “Provocative.”—Slate • “A breakthrough book.”—George R. R. Martin • “Impossible to put down.”—GQ • “Absolutely mind-unfolding.”—NPR • “You should be reading Liu Cixin.”—The Washington PostThe Three-Body Problem is the first novel in the groundbreaking, Hugo Award-winning series from China&#39;s most beloved science fiction author, Cixin Liu.Set against the backdrop of China&#39;s Cultural Revolution, a secret military project sends signals into space to establish contact with aliens. An alien civilization on the brink of destruction captures the signal and plans to invade Earth. Meanwhile, on Earth, different camps start forming, planning to either welcome the superior beings and help them take over a world seen as corrupt, or to fight against the invasion. The result is a science fiction masterpiece of enormous scope and vision.The Three-Body Problem SeriesThe Three-Body ProblemThe Dark ForestDeath&#39;s EndOther Books by Cixin LiuBall LightningSupernova EraTo Hold Up the SkyThe Wandering EarthA View from the StarsA Macmillan Audio production from Tor Books  Translated By: Ken Liu',
+  audiobook: {
+    authors: [ [Object] ],
+    copyrights: [],
+    description: 'Author(s): Cixin Liu\n' +
+      'Narrator(s): Luke Daniels\n' +
+      '\n' +
+      "The inspiration for the Netflix series 3 Body Problem!WINNER OF THE HUGO AWARD FOR BEST NOVELOver 1 million copies sold in North America“A mind-bending epic.”—The New York Times • “War of the Worlds for the 21st century.”—The Wall Street Journal • “Fascinating.”—TIME • “Extraordinary.”—The New Yorker • “Wildly imaginative.”—Barack Obama • “Provocative.”—Slate • “A breakthrough book.”—George R. R. Martin • “Impossible to put down.”—GQ • “Absolutely mind-unfolding.”—NPR • “You should be reading Liu Cixin.”—The Washington PostThe Three-Body Problem is the first novel in the groundbreaking, Hugo Award-winning series from China's most beloved science fiction author, Cixin Liu.Set against the backdrop of China's Cultural Revolution, a secret military project sends signals into space to establish contact with aliens. An alien civilization on the brink of destruction captures the signal and plans to invade Earth. Meanwhile, on Earth, different camps start forming, planning to either welcome the superior beings and help them take over a world seen as corrupt, or to fight against the invasion. The result is a science fiction masterpiece of enormous scope and vision.The Three-Body Problem SeriesThe Three-Body ProblemThe Dark ForestDeath's EndOther Books by Cixin LiuBall LightningSupernova EraTo Hold Up the SkyThe Wandering EarthA View from the StarsA Macmillan Audio production from Tor Books  Translated By: Ken Liu",
+    edition: 'Unabridged edition',
+    explicit: false,
+    external_urls: { spotify: 'https://open.spotify.com/show/1lxwPzRvQTVbwwoEdxyt6b' },
+    href: 'https://api.spotify.com/v1/audiobooks/1lxwPzRvQTVbwwoEdxyt6b',
+    html_description: 'Author(s): Cixin Liu<br/>Narrator(s): Luke Daniels<br/>The inspiration for the Netflix series 3 Body Problem!WINNER OF THE HUGO AWARD FOR BEST NOVELOver 1 million copies sold in North America“A mind-bending epic.”—The New York Times • “War of the Worlds for the 21st century.”—The Wall Street Journal • “Fascinating.”—TIME • “Extraordinary.”—The New Yorker • “Wildly imaginative.”—Barack Obama • “Provocative.”—Slate • “A breakthrough book.”—George R. R. Martin • “Impossible to put down.”—GQ • “Absolutely mind-unfolding.”—NPR • “You should be reading Liu Cixin.”—The Washington PostThe Three-Body Problem is the first novel in the groundbreaking, Hugo Award-winning series from China&#39;s most beloved science fiction author, Cixin Liu.Set against the backdrop of China&#39;s Cultural Revolution, a secret military project sends signals into space to establish contact with aliens. An alien civilization on the brink of destruction captures the signal and plans to invade Earth. Meanwhile, on Earth, different camps start forming, planning to either welcome the superior beings and help them take over a world seen as corrupt, or to fight against the invasion. The result is a science fiction masterpiece of enormous scope and vision.The Three-Body Problem SeriesThe Three-Body ProblemThe Dark ForestDeath&#39;s EndOther Books by Cixin LiuBall LightningSupernova EraTo Hold Up the SkyThe Wandering EarthA View from the StarsA Macmillan Audio production from Tor Books  Translated By: Ken Liu',
+    id: '1lxwPzRvQTVbwwoEdxyt6b',
+    images: [ [Object], [Object], [Object] ],
+    languages: [ 'en' ],
+    media_type: 'audio',
+    name: 'The Three-Body Problem',
+    narrators: [ [Object] ],
+    total_chapters: null,
+    type: 'audiobook',
+    uri: 'spotify:show:1lxwPzRvQTVbwwoEdxyt6b'
+  },
+  type: 'chapter',
+  uri: 'spotify:episode:0D5wENdkdwbqlrHoaJ9g29',
+  external_urls: {
+    spotify: 'https://open.spotify.com/episode/0D5wENdkdwbqlrHoaJ9g29'
+  },
+  href: 'https://api.spotify.com/v1/chapters/0D5wENdkdwbqlrHoaJ9g29'
+}
+ chapter_number :: 0
+restriction ::  payment_required

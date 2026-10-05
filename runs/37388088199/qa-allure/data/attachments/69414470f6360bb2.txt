@@ -1,0 +1,8 @@
+In helper file POST {
+  id: 8651750,
+  name: 'Ollie Automation Test User',
+  email: 'Ollieautomation_1791242732577@gmail.com',
+  gender: 'male',
+  status: 'active'
+} 201
+created userId  8651750
