@@ -82,7 +82,7 @@ test(`@regression Login to app with invalid credentials using CSV file test -${r
     console.log("Test Data length:", jsonTestData .length);
 for(let row of jsonTestData ){
    
-test(`@regression Login to app with invalid credentials using JSON file test -${row.username}-${row.password}`, async({loginPage,homePage}) => {
+test(`Login to app with invalid credentials using JSON file test -${row.username}-${row.password}`, async({loginPage,homePage}) => {
     await loginPage.doLogin(row.username , row.password);
     expect(await loginPage.isInvalidLoginErrorDisplayed()).toBeTruthy();
       
