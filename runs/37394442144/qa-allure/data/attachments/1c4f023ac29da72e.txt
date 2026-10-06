@@ -1,0 +1,2 @@
+search key ::  macbook
+resultCount ::  3

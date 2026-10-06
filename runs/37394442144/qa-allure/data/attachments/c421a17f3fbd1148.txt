@@ -1,0 +1,14 @@
+In helper file POST {
+  bookingid: 2277,
+  booking: {
+    firstname: 'Praveen',
+    lastname: 'Sequeira',
+    totalprice: 500,
+    depositpaid: true,
+    bookingdates: { checkin: '2026-10-10', checkout: '2026-10-15' },
+    additionalneeds: 'Breakfast'
+  }
+} 200
+In helper file POST { token: '4325cd98ed039c5' } 200
+In helper file DELTE 201
+In helper file GET Not Found 404

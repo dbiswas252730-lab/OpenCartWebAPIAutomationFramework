@@ -1,0 +1,21 @@
+In helper file POST {
+  id: 8651779,
+  name: 'Mille Parallel  Test User',
+  email: 'Milleautomation_1791246922899@gmail.com',
+  gender: 'female',
+  status: 'active'
+} 201
+In helper file GET {
+  id: 8651779,
+  name: 'Mille Parallel  Test User',
+  email: 'Milleautomation_1791246922899@gmail.com',
+  gender: 'female',
+  status: 'active'
+} 200
+In helper file GET {
+  id: 8651779,
+  name: 'Mille Parallel  Test User_Updated',
+  email: 'Milleautomation_1791246922899@gmail.com',
+  gender: 'female',
+  status: 'inactive'
+} 200

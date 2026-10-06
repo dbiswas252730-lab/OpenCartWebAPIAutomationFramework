@@ -1,0 +1,15 @@
+In helper file POST {
+  id: 8651773,
+  name: 'Ollie Automation Test User',
+  email: 'Ollieautomation_1791246737747@gmail.com',
+  gender: 'male',
+  status: 'active'
+} 201
+created userId  8651773
+In helper file GET {
+  id: 8651773,
+  name: 'Ollie Automation Test User',
+  email: 'Ollieautomation_1791246737747@gmail.com',
+  gender: 'male',
+  status: 'active'
+} 200

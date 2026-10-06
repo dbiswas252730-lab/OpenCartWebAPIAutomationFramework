@@ -1,0 +1,3 @@
+user registration data : $(fName) - $(lName)  - $(email) 
+                $(tel) - $(pwd) - $(confirmpwd) - subbtn $(subbtn)- policychk $(policychk) 
+subbtn : No false

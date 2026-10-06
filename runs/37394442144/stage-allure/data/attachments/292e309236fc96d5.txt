@@ -1,0 +1,72 @@
+In helper file GET [
+  {
+    id: 8651781,
+    name: 'Ollie Automation Test User',
+    email: 'Ollieautomation_1791247039108@gmail.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8651779,
+    name: 'Mille Parallel  Test User_Updated',
+    email: 'Milleautomation_1791246922899@gmail.com',
+    gender: 'female',
+    status: 'inactive'
+  },
+  {
+    id: 8651777,
+    name: 'Mille Parallel  Test User',
+    email: 'Milleautomation_1791246922142@gmail.com',
+    gender: 'female',
+    status: 'active'
+  },
+  {
+    id: 8651773,
+    name: 'Ollie Automation Test User',
+    email: 'Ollieautomation_1791246737747@gmail.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8651757,
+    name: 'Ollie Automation Test User',
+    email: 'Ollieautomation_1791246184056@gmail.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8651749,
+    name: 'Mille Parallel  Test User_Updated',
+    email: 'Milleautomation_1791242730241@gmail.com',
+    gender: 'female',
+    status: 'inactive'
+  },
+  {
+    id: 8651747,
+    name: 'Mille Parallel  Test User',
+    email: 'Milleautomation_1791242729541@gmail.com',
+    gender: 'female',
+    status: 'active'
+  },
+  {
+    id: 8651746,
+    name: 'Ollie Automation Test User',
+    email: 'Ollieautomation_1791242594645@gmail.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8651566,
+    name: 'Mille Parallel  Test User_Updated',
+    email: 'Milleautomation_1791227444328@gmail.com',
+    gender: 'female',
+    status: 'inactive'
+  },
+  {
+    id: 8651564,
+    name: 'Mille Parallel  Test User',
+    email: 'Milleautomation_1791227443523@gmail.com',
+    gender: 'female',
+    status: 'active'
+  }
+] 200

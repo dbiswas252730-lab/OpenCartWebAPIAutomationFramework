@@ -1,0 +1,2 @@
+search key ::  iphone
+resultCount ::  1

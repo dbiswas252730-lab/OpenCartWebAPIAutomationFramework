@@ -1,0 +1,1 @@
+In helper file GET { message: 'Resource not found' } 404
